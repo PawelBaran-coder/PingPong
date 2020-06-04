@@ -16,7 +16,21 @@ __published:	// IDE-managed Components
         TShape *tlo;
         TImage *ball;
         TTimer *Timer_ball;
+        TImage *paddle_left;
+        TTimer *Timer_up1;
+        TTimer *Timer_down1;
+        TImage *paddle_right;
+        TTimer *Timer_up2;
+        TTimer *Timer_down2;
         void __fastcall Timer_ballTimer(TObject *Sender);
+        void __fastcall Timer_up1Timer(TObject *Sender);
+        void __fastcall Timer_down1Timer(TObject *Sender);
+        void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
+          TShiftState Shift);
+        void __fastcall FormKeyUp(TObject *Sender, WORD &Key,
+          TShiftState Shift);
+        void __fastcall Timer_up2Timer(TObject *Sender);
+        void __fastcall Timer_down2Timer(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

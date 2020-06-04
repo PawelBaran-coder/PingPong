@@ -57,7 +57,8 @@ void __fastcall TForm1::Timer_up1Timer(TObject *Sender)
 
 void __fastcall TForm1::Timer_down1Timer(TObject *Sender)
 {
-       if(paddle_left -> Top + paddle_left -> Height < tlo -> Height - 10)paddle_left -> Top += 10;
+       if(paddle_left -> Top + paddle_left -> Height < tlo -> Height - 10)
+       paddle_left -> Top += 10;
 }
 //---------------------------------------------------------------------------
 
@@ -91,7 +92,8 @@ void __fastcall TForm1::Timer_up2Timer(TObject *Sender)
 
 void __fastcall TForm1::Timer_down2Timer(TObject *Sender)
 {
-       if(paddle_right -> Top + paddle_right -> Height < tlo -> Height - 10)paddle_right -> Top += 10;
+       if(paddle_right -> Top + paddle_right -> Height < tlo -> Height - 10)
+       paddle_right -> Top += 10;
 }
 //---------------------------------------------------------------------------
 

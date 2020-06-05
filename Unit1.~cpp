@@ -8,8 +8,8 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
-        int x= +8;
-        int y= +8;
+        int x= -8;
+        int y= -8;
 
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -37,10 +37,15 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
         {
            Timer_ball -> Enabled = false;
            ball -> Visible = false;
+        //odbicie pilki od lewej paletki
+        } else if (ball -> Top > paddle_left -> Top - ball -> Height/2 &&
+                   ball -> Top < paddle_left -> Top + paddle_left -> Height &&
+                   ball -> Left > paddle_left -> Left + paddle_left -> Width)
+                   {
+                        if (x > 0) x = -x;
+                   }
 
-        }
-
-         // skucha lewego gracza
+         // skucha prawego gracza
         if(ball -> Left + ball -> Width + 5 >= tlo -> Width)
         {
            Timer_ball -> Enabled = false;
@@ -57,7 +62,8 @@ void __fastcall TForm1::Timer_up1Timer(TObject *Sender)
 
 void __fastcall TForm1::Timer_down1Timer(TObject *Sender)
 {
-       if(paddle_left -> Top + paddle_left -> Height < tlo -> Height - 10)paddle_left -> Top += 10;
+       if(paddle_left -> Top + paddle_left -> Height < tlo -> Height - 10)
+       paddle_left -> Top += 10;
 }
 //---------------------------------------------------------------------------
 
@@ -91,7 +97,8 @@ void __fastcall TForm1::Timer_up2Timer(TObject *Sender)
 
 void __fastcall TForm1::Timer_down2Timer(TObject *Sender)
 {
-       if(paddle_right -> Top + paddle_right -> Height < tlo -> Height - 10)paddle_right -> Top += 10;
+       if(paddle_right -> Top + paddle_right -> Height < tlo -> Height - 10)
+       paddle_right -> Top += 10;
 }
 //---------------------------------------------------------------------------
 

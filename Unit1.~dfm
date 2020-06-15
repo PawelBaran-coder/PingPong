@@ -26,8 +26,8 @@ object Form1: TForm1
     Brush.Color = clInactiveCaption
   end
   object ball: TImage
-    Left = 272
-    Top = 376
+    Left = 248
+    Top = 360
     Width = 32
     Height = 32
     AutoSize = True
@@ -133,9 +133,9 @@ object Form1: TForm1
       FFFF}
     Transparent = True
   end
-  object paddle_left: TImage
-    Left = 48
-    Top = 193
+  object paddle_LP: TImage
+    Left = 144
+    Top = 201
     Width = 27
     Height = 127
     AutoSize = True
@@ -478,7 +478,7 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFF000000}
     Transparent = True
   end
-  object paddle_right: TImage
+  object paddle_RP: TImage
     Left = 912
     Top = 193
     Width = 27
@@ -840,8 +840,8 @@ object Form1: TForm1
     Enabled = False
     Interval = 20
     OnTimer = Timer_down1Timer
-    Left = 56
-    Top = 392
+    Left = 48
+    Top = 432
   end
   object Timer_up2: TTimer
     Enabled = False

@@ -16,10 +16,10 @@ __published:	// IDE-managed Components
         TShape *tlo;
         TImage *ball;
         TTimer *Timer_ball;
-        TImage *paddle_left;
+        TImage *paddle_LP;
         TTimer *Timer_up1;
         TTimer *Timer_down1;
-        TImage *paddle_right;
+        TImage *paddle_RP;
         TTimer *Timer_up2;
         TTimer *Timer_down2;
         void __fastcall Timer_ballTimer(TObject *Sender);

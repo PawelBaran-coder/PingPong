@@ -8,8 +8,8 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
-        int x= +8;
-        int y= +8;
+        int x= -3;
+        int y= -3;
 
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -33,32 +33,44 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
 
         // skucha lewego gracza
 
-        if(ball -> Left - 5 <= tlo -> Left)
+        if(ball -> Left + ball -> Width/2 < paddle_LP -> Left)
         {
            Timer_ball -> Enabled = false;
            ball -> Visible = false;
+        //odbicie pilki od lewej paletki
+        } else if (ball -> Top > paddle_LP -> Top - ball -> Height/2 &&
+                   ball -> Top < paddle_LP -> Top + paddle_LP -> Height &&
+                   ball -> Left < paddle_LP -> Left + paddle_LP -> Width)
+                   {
+                        if (x < 0)
+                        x = -x;
+                   }
 
-        }
-
-         // skucha lewego gracza
+         // skucha prawego gracza
         if(ball -> Left + ball -> Width + 5 >= tlo -> Width)
         {
            Timer_ball -> Enabled = false;
            ball -> Visible = false;
-
-        }
+        //odbicie pilki od prawej paletki
+        }  else if (ball -> Top > paddle_RP -> Top - ball -> Height/2 &&
+                    ball -> Top < paddle_RP -> Top + paddle_RP -> Height &&
+                    ball -> Left + ball -> Width > paddle_RP -> Left)
+                   {
+                        if (x > 0)
+                        x = -x;
+                   }
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Timer_up1Timer(TObject *Sender)
 {
-     if(paddle_left -> Top >10) paddle_left -> Top -= 10;
+     if(paddle_LP -> Top >10) paddle_LP -> Top -= 10;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::Timer_down1Timer(TObject *Sender)
 {
-       if(paddle_left -> Top + paddle_left -> Height < tlo -> Height - 10)
-       paddle_left -> Top += 10;
+       if(paddle_LP -> Top + paddle_LP -> Height < tlo -> Height - 10)
+       paddle_LP -> Top += 10;
 }
 //---------------------------------------------------------------------------
 
@@ -86,14 +98,14 @@ void __fastcall TForm1::FormKeyUp(TObject *Sender, WORD &Key,
 
 void __fastcall TForm1::Timer_up2Timer(TObject *Sender)
 {
-        if(paddle_right -> Top >10) paddle_right -> Top -= 10;
+        if(paddle_RP -> Top >10) paddle_RP -> Top -= 10;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::Timer_down2Timer(TObject *Sender)
 {
-       if(paddle_right -> Top + paddle_right -> Height < tlo -> Height - 10)
-       paddle_right -> Top += 10;
+       if(paddle_RP -> Top + paddle_RP -> Height < tlo -> Height - 10)
+       paddle_RP -> Top += 10;
 }
 //---------------------------------------------------------------------------
 

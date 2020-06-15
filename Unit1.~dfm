@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = -1222
-  Top = 266
-  Width = 1009
-  Height = 609
+  Left = -1289
+  Top = 247
+  Width = 1064
+  Height = 637
   Caption = 'Form1'
   Color = clBtnFace
   UseDockManager = True
@@ -20,14 +20,14 @@ object Form1: TForm1
   object tlo: TShape
     Left = 0
     Top = 0
-    Width = 993
+    Width = 1048
     Height = 505
     Align = alTop
     Brush.Color = clInactiveCaption
   end
   object ball: TImage
-    Left = 248
-    Top = 360
+    Left = 480
+    Top = 432
     Width = 32
     Height = 32
     AutoSize = True
@@ -134,7 +134,7 @@ object Form1: TForm1
     Transparent = True
   end
   object paddle_LP: TImage
-    Left = 144
+    Left = 168
     Top = 201
     Width = 27
     Height = 127
@@ -480,7 +480,7 @@ object Form1: TForm1
   end
   object paddle_RP: TImage
     Left = 912
-    Top = 193
+    Top = 185
     Width = 27
     Height = 127
     AutoSize = True
@@ -822,6 +822,21 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFF000000}
     Transparent = True
+  end
+  object gameStatus: TLabel
+    Left = 0
+    Top = 505
+    Width = 1048
+    Height = 93
+    Align = alClient
+    Alignment = taCenter
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    OnClick = gameStatusClick
   end
   object Timer_ball: TTimer
     Interval = 15

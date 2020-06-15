@@ -33,7 +33,7 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
 
         // skucha lewego gracza
 
-        if(ball -> Left + ball -> Width < paddle_LP -> Left)
+        if(ball -> Left + ball -> Width/2 < paddle_LP -> Left)
         {
            Timer_ball -> Enabled = false;
            ball -> Visible = false;

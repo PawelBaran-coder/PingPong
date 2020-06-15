@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = -1222
+  Left = -1449
   Top = 266
-  Width = 1009
+  Width = 1362
   Height = 609
   Caption = 'Form1'
   Color = clBtnFace
@@ -20,14 +20,14 @@ object Form1: TForm1
   object tlo: TShape
     Left = 0
     Top = 0
-    Width = 993
+    Width = 1346
     Height = 505
     Align = alTop
     Brush.Color = clInactiveCaption
   end
   object ball: TImage
-    Left = 248
-    Top = 360
+    Left = 480
+    Top = 432
     Width = 32
     Height = 32
     AutoSize = True
@@ -134,7 +134,7 @@ object Form1: TForm1
     Transparent = True
   end
   object paddle_LP: TImage
-    Left = 144
+    Left = 168
     Top = 201
     Width = 27
     Height = 127
@@ -479,8 +479,8 @@ object Form1: TForm1
     Transparent = True
   end
   object paddle_RP: TImage
-    Left = 912
-    Top = 193
+    Left = 1104
+    Top = 185
     Width = 27
     Height = 127
     AutoSize = True

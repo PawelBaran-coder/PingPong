@@ -25,6 +25,16 @@ __published:	// IDE-managed Components
         TLabel *gameStatus;
         TShape *LP_balls;
         TShape *RP_balls;
+        TImage *LP_ball1;
+        TImage *LP_ball2;
+        TImage *LP_ball3;
+        TImage *LP_ball4;
+        TImage *LP_ball5;
+        TImage *RP_ball1;
+        TImage *RP_ball2;
+        TImage *RP_ball3;
+        TImage *RP_ball4;
+        TImage *RP_ball5;
         void __fastcall Timer_ballTimer(TObject *Sender);
         void __fastcall Timer_up1Timer(TObject *Sender);
         void __fastcall Timer_down1Timer(TObject *Sender);

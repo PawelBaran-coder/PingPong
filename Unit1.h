@@ -35,6 +35,7 @@ __published:	// IDE-managed Components
         TImage *RP_ball3;
         TImage *RP_ball4;
         TImage *RP_ball5;
+        TButton *Button1;
         void __fastcall Timer_ballTimer(TObject *Sender);
         void __fastcall Timer_up1Timer(TObject *Sender);
         void __fastcall Timer_down1Timer(TObject *Sender);
@@ -45,6 +46,7 @@ __published:	// IDE-managed Components
         void __fastcall Timer_up2Timer(TObject *Sender);
         void __fastcall Timer_down2Timer(TObject *Sender);
         void __fastcall gameStatusClick(TObject *Sender);
+        void __fastcall Button1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

@@ -3309,6 +3309,22 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
   end
+  object Button1: TButton
+    Left = 408
+    Top = 168
+    Width = 201
+    Height = 57
+    Caption = 'Gramy dalej'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    Visible = False
+    OnClick = Button1Click
+  end
   object Timer_ball: TTimer
     Interval = 15
     OnTimer = Timer_ballTimer

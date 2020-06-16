@@ -17,6 +17,7 @@ TForm1 *Form1;
         AnsiString LPP, RPP;
 
         int LP_ballNumber = 5;
+        int RP_ballNumber = 5;
 
 
 //---------------------------------------------------------------------------
@@ -73,6 +74,8 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
 
                 Timer_ball -> Enabled = false;
                 ball -> Visible = false;
+                Button1 -> Visible = true;
+
         }
 
         //odbicie pilki od lewej paletki
@@ -89,11 +92,35 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
         if(ball -> Left + ball -> Width/2 > paddle_RP -> Left + paddle_RP -> Width)
         {
                 LP_points += 1;
+                RP_ballNumber -= 1;
                 LPP = IntToStr(LP_points);
                 gameStatus -> Caption = LPP + " : " + RPP;
 
+                if (RP_ballNumber == 4)
+                {
+                        RP_ball5 -> Visible = false;
+                }
+                if (RP_ballNumber == 3)
+                {
+                        RP_ball4 -> Visible = false;
+                }
+                if (RP_ballNumber == 2)
+                {
+                        RP_ball3 -> Visible = false;
+                }
+                if (RP_ballNumber == 1)
+                {
+                        RP_ball2 -> Visible = false;
+                }
+                if (RP_ballNumber == 0)
+                {
+                        RP_ball1 -> Visible = false;
+                }
+
+
                 Timer_ball -> Enabled = false;
                 ball -> Visible = false;
+                Button1 -> Visible = true;
 
         //odbicie pilki od prawej paletki
         }  else if (ball -> Top > paddle_RP -> Top - ball -> Height/2 &&
@@ -161,6 +188,20 @@ void __fastcall TForm1::gameStatusClick(TObject *Sender)
         LPP = IntToStr(LP_points);
         RPP = IntToStr(RP_points);
         gameStatus -> Caption = LPP + " : " + RPP;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+        ball -> Left = 500;
+        ball -> Top =300;
+
+        ball -> Visible = true;
+        x= -5;
+        y= -5;
+        Timer_ball -> Enabled = true;
+
+        Button1 -> Visible = false;
 }
 //---------------------------------------------------------------------------
 

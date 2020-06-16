@@ -16,6 +16,8 @@ TForm1 *Form1;
 
         AnsiString LPP, RPP;
 
+        int LP_ballNumber = 5;
+
 
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -45,15 +47,37 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
         if(ball -> Left + ball -> Width/2 < paddle_LP -> Left)
         {
                 RP_points += 1;
+                LP_ballNumber -= 1;
                 RPP = IntToStr(RP_points);
                 gameStatus -> Caption = LPP + " : " + RPP;
+                if (LP_ballNumber == 4)
+                {
+                        LP_ball5 -> Visible = false;
+                }
+                if (LP_ballNumber == 3)
+                {
+                        LP_ball4 -> Visible = false;
+                }
+                if (LP_ballNumber == 2)
+                {
+                        LP_ball3 -> Visible = false;
+                }
+                if (LP_ballNumber == 1)
+                {
+                        LP_ball2 -> Visible = false;
+                }
+                if (LP_ballNumber == 0)
+                {
+                        LP_ball1 -> Visible = false;
+                }
 
                 Timer_ball -> Enabled = false;
                 ball -> Visible = false;
-
+        }
 
         //odbicie pilki od lewej paletki
-        } else if (ball -> Top > paddle_LP -> Top - ball -> Height/2 &&
+
+        else if (ball -> Top > paddle_LP -> Top - ball -> Height/2 &&
                    ball -> Top < paddle_LP -> Top + paddle_LP -> Height &&
                    ball -> Left < paddle_LP -> Left + paddle_LP -> Width)
                    {
@@ -79,6 +103,7 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
                         if (x > 0)
                         x = -x;
                    }
+
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Timer_up1Timer(TObject *Sender)
@@ -136,6 +161,20 @@ void __fastcall TForm1::gameStatusClick(TObject *Sender)
         LPP = IntToStr(LP_points);
         RPP = IntToStr(RP_points);
         gameStatus -> Caption = LPP + " : " + RPP;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+        ball -> Left = 50;
+        ball -> Top =50;
+
+        ball -> Visible = true;
+        x= -5;
+        y= -5;
+        Timer_ball -> Enabled = true;
+
+        Button1 -> Visible = false;
 }
 //---------------------------------------------------------------------------
 

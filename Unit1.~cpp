@@ -11,10 +11,19 @@ TForm1 *Form1;
         int x= -3;
         int y= -3;
 
+        int LP_points = 0;
+        int RP_points = 0;
+
+        AnsiString LPP, RPP;
+
+
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
 {
+        LPP = IntToStr(LP_points);
+        RPP = IntToStr(RP_points);
+        gameStatus -> Caption = LPP + " : " + RPP;
 }
 //---------------------------------------------------------------------------
 
@@ -25,7 +34,7 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
 
         //odbij od gornej sciany
 
-        if (ball -> Top-5 <= tlo -> Top) y = -y;
+        if (ball -> Top-5 <= tlo -> Top)   y = -y;
 
         //odbij od dolnej sciany
 
@@ -33,10 +42,16 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
 
         // skucha lewego gracza
 
-        if(ball -> Left + ball -> Width < paddle_LP -> Left)
+        if(ball -> Left + ball -> Width/2 < paddle_LP -> Left)
         {
-           Timer_ball -> Enabled = false;
-           ball -> Visible = false;
+                RP_points += 1;
+                RPP = IntToStr(RP_points);
+                gameStatus -> Caption = LPP + " : " + RPP;
+
+                Timer_ball -> Enabled = false;
+                ball -> Visible = false;
+
+
         //odbicie pilki od lewej paletki
         } else if (ball -> Top > paddle_LP -> Top - ball -> Height/2 &&
                    ball -> Top < paddle_LP -> Top + paddle_LP -> Height &&
@@ -47,10 +62,15 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
                    }
 
          // skucha prawego gracza
-        if(ball -> Left + ball -> Width + 5 >= tlo -> Width)
+        if(ball -> Left + ball -> Width/2 > paddle_RP -> Left + paddle_RP -> Width)
         {
-           Timer_ball -> Enabled = false;
-           ball -> Visible = false;
+                LP_points += 1;
+                LPP = IntToStr(LP_points);
+                gameStatus -> Caption = LPP + " : " + RPP;
+
+                Timer_ball -> Enabled = false;
+                ball -> Visible = false;
+
         //odbicie pilki od prawej paletki
         }  else if (ball -> Top > paddle_RP -> Top - ball -> Height/2 &&
                     ball -> Top < paddle_RP -> Top + paddle_RP -> Height &&
@@ -106,6 +126,16 @@ void __fastcall TForm1::Timer_down2Timer(TObject *Sender)
 {
        if(paddle_RP -> Top + paddle_RP -> Height < tlo -> Height - 10)
        paddle_RP -> Top += 10;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::gameStatusClick(TObject *Sender)
+{
+
+        LPP = IntToStr(LP_points);
+        RPP = IntToStr(RP_points);
+        gameStatus -> Caption = LPP + " : " + RPP;
 }
 //---------------------------------------------------------------------------
 

@@ -22,6 +22,19 @@ __published:	// IDE-managed Components
         TImage *paddle_RP;
         TTimer *Timer_up2;
         TTimer *Timer_down2;
+        TLabel *gameStatus;
+        TShape *LP_balls;
+        TShape *RP_balls;
+        TImage *LP_ball1;
+        TImage *LP_ball2;
+        TImage *LP_ball3;
+        TImage *LP_ball4;
+        TImage *LP_ball5;
+        TImage *RP_ball1;
+        TImage *RP_ball2;
+        TImage *RP_ball3;
+        TImage *RP_ball4;
+        TImage *RP_ball5;
         void __fastcall Timer_ballTimer(TObject *Sender);
         void __fastcall Timer_up1Timer(TObject *Sender);
         void __fastcall Timer_down1Timer(TObject *Sender);
@@ -31,6 +44,7 @@ __published:	// IDE-managed Components
           TShiftState Shift);
         void __fastcall Timer_up2Timer(TObject *Sender);
         void __fastcall Timer_down2Timer(TObject *Sender);
+        void __fastcall gameStatusClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

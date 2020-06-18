@@ -14,11 +14,11 @@ TForm1 *Form1;
         int LP_points = 0;
         int RP_points = 0;
 
-        AnsiString LPP, RPP;
+        AnsiString LPP, RPP, AB;
 
         int LP_ballNumber = 5;
         int RP_ballNumber = 5;
-
+        //int all_balls =10;
 
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -49,6 +49,8 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
         {
                 RP_points += 1;
                 LP_ballNumber -= 1;
+                //all_balls -= 1;
+                //AB = IntToStr(all_balls);
                 RPP = IntToStr(RP_points);
                 gameStatus -> Caption = LPP + " : " + RPP;
                 if (LP_ballNumber == 4)
@@ -70,11 +72,16 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
                 if (LP_ballNumber == 0)
                 {
                         LP_ball1 -> Visible = false;
+                        //Label1 ->  Caption = "GAME OVER";
+                        //Label1 ->  Visible = true;
                 }
 
                 Timer_ball -> Enabled = false;
                 ball -> Visible = false;
                 Button1 -> Visible = true;
+                Button1 -> Visible = true;
+                Label1 ->  Caption = "Punkt dla prawicy!";
+                Label1 ->  Visible = true;
 
         }
 
@@ -93,6 +100,8 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
         {
                 LP_points += 1;
                 RP_ballNumber -= 1;
+                //all_balls -= 1;
+                //AB = IntToStr(all_balls);
                 LPP = IntToStr(LP_points);
                 gameStatus -> Caption = LPP + " : " + RPP;
 
@@ -121,6 +130,9 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
                 Timer_ball -> Enabled = false;
                 ball -> Visible = false;
                 Button1 -> Visible = true;
+                Label1 ->  Caption = "Punkt dla lewicy!";
+                Label1 ->  Visible = true;
+
 
         //odbicie pilki od prawej paletki
         }  else if (ball -> Top > paddle_RP -> Top - ball -> Height/2 &&
@@ -130,7 +142,13 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
                         if (x > 0)
                         x = -x;
                    }
-
+        if( LP_ballNumber ==0 || RP_ballNumber ==0)
+        {
+                Label1 ->  Caption = "GAME OVER";
+                Label1 ->  Visible = true;
+                Button1 -> Visible = false;
+                Button2 -> Visible = true;
+        }
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Timer_up1Timer(TObject *Sender)
@@ -202,6 +220,42 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
         Timer_ball -> Enabled = true;
 
         Button1 -> Visible = false;
+        Label1 ->  Visible = false;
+       
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+        ball -> Left = 500;
+        ball -> Top =300;
+
+        ball -> Visible = true;
+        x= -5;
+        y= -5;
+
+        Button1 -> Visible = false;
+        Button2 -> Visible = false;
+        Label1 ->  Visible = false;
+
+        LP_ballNumber = 5;
+        RP_ballNumber = 5;
+        Timer_ball -> Enabled = true;
+        LP_points = 0;
+        RP_points = 0;
+        gameStatus -> Caption = "0 : 0";
+        LP_ball1 -> Visible = true;
+        LP_ball2 -> Visible = true;
+        LP_ball3 -> Visible = true;
+        LP_ball4 -> Visible = true;
+        LP_ball5 -> Visible = true;
+        RP_ball1 -> Visible = true;
+        RP_ball2 -> Visible = true;
+        RP_ball3 -> Visible = true;
+        RP_ball4 -> Visible = true;
+        RP_ball5 -> Visible = true;
+
 }
 //---------------------------------------------------------------------------
 

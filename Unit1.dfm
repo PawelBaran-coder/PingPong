@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 337
-  Top = 204
+  Left = -1295
+  Top = 173
   Width = 1035
   Height = 607
   Caption = 'Form1'
@@ -3309,12 +3309,30 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
   end
+  object Label1: TLabel
+    Left = 400
+    Top = 183
+    Width = 228
+    Height = 36
+    BiDiMode = bdLeftToRight
+    Caption = 'GAME OVER !!!'
+    Color = clBtnFace
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -31
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentBiDiMode = False
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
   object Button1: TButton
-    Left = 408
-    Top = 168
+    Left = 416
+    Top = 248
     Width = 201
     Height = 57
-    Caption = 'Gramy dalej'
+    Caption = 'Graj dalej'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -32
@@ -3325,10 +3343,26 @@ object Form1: TForm1
     Visible = False
     OnClick = Button1Click
   end
+  object Button2: TButton
+    Left = 416
+    Top = 320
+    Width = 201
+    Height = 57
+    Caption = 'Nowa gra'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -31
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    Visible = False
+    OnClick = Button2Click
+  end
   object Timer_ball: TTimer
     Interval = 15
     OnTimer = Timer_ballTimer
-    Left = 448
+    Left = 128
     Top = 24
   end
   object Timer_up1: TTimer
@@ -3336,27 +3370,27 @@ object Form1: TForm1
     Interval = 20
     OnTimer = Timer_up1Timer
     Left = 48
-    Top = 96
+    Top = 24
   end
   object Timer_down1: TTimer
     Enabled = False
     Interval = 20
     OnTimer = Timer_down1Timer
     Left = 48
-    Top = 432
+    Top = 64
   end
   object Timer_up2: TTimer
     Enabled = False
     Interval = 20
     OnTimer = Timer_up2Timer
-    Left = 800
-    Top = 104
+    Left = 88
+    Top = 24
   end
   object Timer_down2: TTimer
     Enabled = False
     Interval = 20
     OnTimer = Timer_down2Timer
-    Left = 848
-    Top = 440
+    Left = 88
+    Top = 64
   end
 end

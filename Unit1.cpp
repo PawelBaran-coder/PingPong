@@ -9,8 +9,8 @@
 #pragma resource "*.dfm"
 
 TForm1 *Form1;
-        int x= -5;
-        int y= -5;
+        float x= -4;
+        float y= -4;
 
         int LP_points = 0;
         int RP_points = 0;
@@ -31,13 +31,14 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	AnsiString line3 = "Prawy gracz steruje wciskaj¹c strza³ki do góry i w dó³.";
 	AnsiString line4 = "Ka¿dy z graczy posiada 5 pi³ek.";
         AnsiString line5 = "Ka¿da skucha to strata jednej pi³ki.";
-        AnsiString line6 = "Gracz, który straci wszystkie pi³ki przegrywa";
-        AnsiString line7 = "Mi³ej zabawy!";
+        AnsiString line6 = "Gracz, który straci wszystkie pi³ki przegrywa.";
+        AnsiString line7 = "Po ka¿dym odbiciu pi³ki bedzie ona przyspieszac!";
+        AnsiString line8 = "Mi³ej zabawy!";
 
 	ShowMessage(line1 + sLineBreak + sLineBreak + line2 + sLineBreak +
 			line3 + sLineBreak + sLineBreak +line4 + sLineBreak +
-                        sLineBreak +line5 + sLineBreak + line6 + sLineBreak + sLineBreak + line7);
-        //ShowMessage("taka oto gierka.");
+                        sLineBreak +line5 + sLineBreak + line6 + sLineBreak + line7 +
+                        sLineBreak + sLineBreak + line8);
 
         Button2 -> Caption = "START";
         Button2 -> Visible = true;
@@ -54,27 +55,26 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 
 void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
 {
-
-
         ball -> Left += x;
         ball -> Top += y;
 
-
-
         //odbij od gornej sciany
-
-        if (ball -> Top-5 <= tlo -> Top)   y = -y;
+        if (ball -> Top-5 <= tlo -> Top)
+        {
+                y = -y;
+        }
 
         //odbij od dolnej sciany
-
-        if (ball -> Top + ball -> Height >= tlo -> Top + tlo -> Height) y = -y;
+        if (ball -> Top + ball -> Height >= tlo -> Top + tlo -> Height)
+        {
+                y = -y;
+        }
 
         // skucha lewego gracza
-
         if(ball -> Left + ball -> Width/2 < paddle_LP -> Left)
         {
-                RP_points += 1;
-                LP_ballNumber -= 1;
+                RP_points ++;
+                LP_ballNumber --;
                 RPP = IntToStr(RP_points);
                 gameStatus -> Caption = LPP + " : " + RPP;
 
@@ -105,24 +105,22 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
                 Button1 -> Visible = true;
                 Label1 ->  Caption = "Punkt dla zielonych!";
                 Label1 ->  Visible = true;
-
         }
 
         //odbicie pilki od lewej paletki
-
         else if (ball -> Top > paddle_LP -> Top - ball -> Height/2 &&
                    ball -> Top < paddle_LP -> Top + paddle_LP -> Height &&
                    ball -> Left < paddle_LP -> Left + paddle_LP -> Width)
                    {
                         if (x < 0)
-                        x = -x;
+                        x = -x*1.2;
                    }
 
          // skucha prawego gracza
         if(ball -> Left + ball -> Width/2 > paddle_RP -> Left + paddle_RP -> Width)
         {
-                LP_points += 1;
-                RP_ballNumber -= 1;
+                LP_points ++ ;
+                RP_ballNumber -- ;
                 LPP = IntToStr(LP_points);
                 gameStatus -> Caption = LPP + " : " + RPP;
 
@@ -161,7 +159,7 @@ void __fastcall TForm1::Timer_ballTimer(TObject *Sender)
                     ball -> Left + ball -> Width > paddle_RP -> Left)
                    {
                         if (x > 0)
-                        x = -x;
+                        x = -x * 1.2;
                    }
         if( LP_ballNumber ==0 || RP_ballNumber ==0)
         {
@@ -207,7 +205,6 @@ void __fastcall TForm1::FormKeyUp(TObject *Sender, WORD &Key,
 }
 //---------------------------------------------------------------------------
 
-
 void __fastcall TForm1::Timer_up2Timer(TObject *Sender)
 {
         if(paddle_RP -> Top >10) paddle_RP -> Top -= 10;
@@ -233,8 +230,8 @@ void __fastcall TForm1::gameStatusClick(TObject *Sender)
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-        ball -> Left = 500;
-        ball -> Top =300;
+        ball -> Left = 620;
+        ball -> Top = 420;
 
         ball -> Visible = true;
         x= -5;
@@ -250,8 +247,15 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-        ball -> Left = 500;
+        ball -> Left = 620;
         ball -> Top =420;
+
+        LP_ballNumber = 5;
+        RP_ballNumber = 5;
+        LP_points = 0;
+        RP_points = 0;
+        RPP = IntToStr(RP_points);
+        LPP = IntToStr(LP_points);
 
         ball -> Visible = true;
         x= -5;
@@ -262,12 +266,9 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
         Label1 ->  Visible = false;
         Label2 ->  Visible = false;
 
-        LP_ballNumber = 5;
-        RP_ballNumber = 5;
         Timer_ball -> Enabled = true;
-        LP_points = 0;
-        RP_points = 0;
-        gameStatus -> Caption = "0 : 0";
+
+        gameStatus -> Caption = LPP + " : " + RPP;
         LP_ball1 -> Visible = true;
         LP_ball2 -> Visible = true;
         LP_ball3 -> Visible = true;

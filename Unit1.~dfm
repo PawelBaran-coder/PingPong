@@ -1,8 +1,9 @@
 object Form1: TForm1
-  Left = -1208
-  Top = 327
-  Width = 1035
-  Height = 607
+  Left = -1452
+  Top = 148
+  Width = 1296
+  Height = 759
+  AutoSize = True
   Caption = 'Form1'
   Color = clBtnFace
   UseDockManager = True
@@ -20,14 +21,14 @@ object Form1: TForm1
   object tlo: TShape
     Left = 0
     Top = 0
-    Width = 1019
-    Height = 505
+    Width = 1280
+    Height = 641
     Align = alTop
     Brush.Color = clInactiveCaption
   end
   object ball: TImage
-    Left = 512
-    Top = 424
+    Left = 620
+    Top = 420
     Width = 30
     Height = 29
     AutoSize = True
@@ -122,7 +123,7 @@ object Form1: TForm1
   end
   object paddle_LP: TImage
     Left = 48
-    Top = 193
+    Top = 258
     Width = 18
     Height = 125
     AutoSize = True
@@ -351,8 +352,8 @@ object Form1: TForm1
     Transparent = True
   end
   object paddle_RP: TImage
-    Left = 960
-    Top = 185
+    Left = 1216
+    Top = 258
     Width = 18
     Height = 125
     AutoSize = True
@@ -581,37 +582,37 @@ object Form1: TForm1
     Transparent = True
   end
   object gameStatus: TLabel
-    Left = 417
-    Top = 505
-    Width = 185
-    Height = 63
+    Left = 289
+    Top = 641
+    Width = 703
+    Height = 79
     Align = alClient
     Alignment = taCenter
-    Font.Charset = DEFAULT_CHARSET
+    Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
-    Font.Height = -40
-    Font.Name = 'MS Sans Serif'
+    Font.Height = -53
+    Font.Name = 'Myanmar Text'
     Font.Style = [fsBold]
     ParentFont = False
     OnClick = gameStatusClick
   end
   object LP_balls: TShape
     Left = 0
-    Top = 505
-    Width = 417
-    Height = 63
+    Top = 641
+    Width = 289
+    Height = 79
     Align = alLeft
   end
   object RP_balls: TShape
-    Left = 602
-    Top = 505
-    Width = 417
-    Height = 63
+    Left = 992
+    Top = 641
+    Width = 288
+    Height = 79
     Align = alRight
   end
   object LP_ball1: TImage
     Left = 8
-    Top = 511
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -858,7 +859,7 @@ object Form1: TForm1
   end
   object LP_ball2: TImage
     Left = 64
-    Top = 511
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -1105,7 +1106,7 @@ object Form1: TForm1
   end
   object LP_ball3: TImage
     Left = 120
-    Top = 511
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -1352,7 +1353,7 @@ object Form1: TForm1
   end
   object LP_ball4: TImage
     Left = 176
-    Top = 511
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -1599,7 +1600,7 @@ object Form1: TForm1
   end
   object LP_ball5: TImage
     Left = 232
-    Top = 511
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -1845,8 +1846,8 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
   end
   object RP_ball1: TImage
-    Left = 960
-    Top = 511
+    Left = 1224
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -2092,8 +2093,8 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
   end
   object RP_ball2: TImage
-    Left = 904
-    Top = 511
+    Left = 1168
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -2339,8 +2340,8 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
   end
   object RP_ball3: TImage
-    Left = 848
-    Top = 511
+    Left = 1112
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -2586,8 +2587,8 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
   end
   object RP_ball4: TImage
-    Left = 792
-    Top = 511
+    Left = 1056
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -2833,8 +2834,8 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
   end
   object RP_ball5: TImage
-    Left = 736
-    Top = 511
+    Left = 1000
+    Top = 655
     Width = 50
     Height = 50
     Picture.Data = {
@@ -3080,11 +3081,14 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
   end
   object Label1: TLabel
-    Left = 360
-    Top = 125
-    Width = 10
-    Height = 36
+    Left = 470
+    Top = 117
+    Width = 340
+    Height = 52
+    Alignment = taCenter
+    AutoSize = False
     BiDiMode = bdLeftToRight
+    Caption = 'dla kogo punkt'
     Color = clBtnFace
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -3099,10 +3103,11 @@ object Form1: TForm1
     Visible = False
   end
   object Label2: TLabel
-    Left = 384
-    Top = 216
-    Width = 269
-    Height = 71
+    Left = 490
+    Top = 184
+    Width = 300
+    Height = 65
+    Alignment = taCenter
     Caption = 'GAME OVER!!!'
     Font.Charset = ANSI_CHARSET
     Font.Color = clRed
@@ -3114,38 +3119,39 @@ object Form1: TForm1
     Visible = False
   end
   object Button1: TButton
-    Left = 416
-    Top = 248
-    Width = 201
-    Height = 57
+    Left = 540
+    Top = 272
+    Width = 200
+    Height = 50
     Caption = 'Graj dalej'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -32
     Font.Name = 'MS Sans Serif'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
     Visible = False
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 416
-    Top = 320
-    Width = 201
-    Height = 57
+    Left = 490
+    Top = 344
+    Width = 300
+    Height = 50
     Caption = 'Nowa gra'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -31
+    Font.Height = -32
     Font.Name = 'MS Sans Serif'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
     Visible = False
     OnClick = Button2Click
   end
   object Timer_ball: TTimer
+    Enabled = False
     Interval = 15
     OnTimer = Timer_ballTimer
     Left = 128
@@ -3160,7 +3166,7 @@ object Form1: TForm1
   end
   object Timer_down1: TTimer
     Enabled = False
-    Interval = 20
+    Interval = 30
     OnTimer = Timer_down1Timer
     Left = 48
     Top = 64

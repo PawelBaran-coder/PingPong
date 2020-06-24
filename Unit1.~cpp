@@ -31,12 +31,14 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	AnsiString line3 = "Prawy gracz steruje wciskaj¹c strza³ki do góry i w dó³.";
 	AnsiString line4 = "Ka¿dy z graczy posiada 5 pi³ek.";
         AnsiString line5 = "Ka¿da skucha to strata jednej pi³ki.";
-        AnsiString line6 = "Gracz, który straci wszystkie pi³ki przegrywa";
-        AnsiString line7 = "Mi³ej zabawy!";
+        AnsiString line6 = "Gracz, który straci wszystkie pi³ki przegrywa.";
+        AnsiString line7 = "Po ka¿dym odbiciu pi³ki bedzie ona przyspieszac!";
+        AnsiString line8 = "Mi³ej zabawy!";
 
 	ShowMessage(line1 + sLineBreak + sLineBreak + line2 + sLineBreak +
 			line3 + sLineBreak + sLineBreak +line4 + sLineBreak +
-                        sLineBreak +line5 + sLineBreak + line6 + sLineBreak + sLineBreak + line7);
+                        sLineBreak +line5 + sLineBreak + line6 + sLineBreak + line7 +
+                        sLineBreak + sLineBreak + line8);
 
         Button2 -> Caption = "START";
         Button2 -> Visible = true;

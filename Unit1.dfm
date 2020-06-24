@@ -1,10 +1,12 @@
 object Form1: TForm1
   Left = -1452
   Top = 148
-  Width = 1296
-  Height = 759
   AutoSize = True
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsToolWindow
   Caption = 'Form1'
+  ClientHeight = 720
+  ClientWidth = 1280
   Color = clBtnFace
   UseDockManager = True
   DockSite = True
@@ -24,7 +26,7 @@ object Form1: TForm1
     Width = 1280
     Height = 641
     Align = alTop
-    Brush.Color = clInactiveCaption
+    Brush.Color = clMoneyGreen
   end
   object ball: TImage
     Left = 620
@@ -3105,8 +3107,8 @@ object Form1: TForm1
   object Label2: TLabel
     Left = 490
     Top = 184
-    Width = 300
-    Height = 65
+    Width = 269
+    Height = 71
     Alignment = taCenter
     Caption = 'GAME OVER!!!'
     Font.Charset = ANSI_CHARSET
@@ -3123,6 +3125,7 @@ object Form1: TForm1
     Top = 272
     Width = 200
     Height = 50
+    Cursor = crHandPoint
     Caption = 'Graj dalej'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -3139,6 +3142,7 @@ object Form1: TForm1
     Top = 344
     Width = 300
     Height = 50
+    Cursor = crHandPoint
     Caption = 'Nowa gra'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
